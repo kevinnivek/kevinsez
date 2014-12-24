@@ -90,7 +90,15 @@ angular.module('starter', ['ionic'])
       return 'Unknown code <' + code + '>';
     }
   }
-
+         // An alert dialog
+         $scope.showAlert = function() {
+         var alertPopup = $ionicPopup.alert({
+                                            title: 'Don\'t eat that!',
+                                            template: 'It might taste good'
+                                            });
+         alertPopup.then(function(res) {
+                         console.log('Thank you for not eating my delicious ice cream cone');
+                         });
   return service;
 })
 
@@ -98,9 +106,9 @@ angular.module('starter', ['ionic'])
 .controller('AudioCtrl', function($scope, MediaSrv) {
   $scope.playAudio = function(filename) {
     //  alert("test");
-
     MediaSrv.loadMedia('sounds/' + filename).then(function(media) {
       media.play();
     });
   }
 })
+
