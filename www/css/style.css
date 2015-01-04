@@ -2,4 +2,7 @@
 
 .main { 
 	background-image: url('../img/kevin.jpg');
+	-webkit-background-size: cover;
+    	-moz-background-size: cover;
+    	background-size: cover;
 }
