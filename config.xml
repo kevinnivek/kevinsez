@@ -2,10 +2,10 @@
 <widget id="com.ionicframework.sezkevvo649004" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>sezkevvo</name>
   <description>
-        An Ionic Framework and Cordova project.
+     An audio archive of Kevin
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+  <author email="crush@crushkill.com" href="http://crushkill.com/">
+      Kevin Glitter 
     </author>
   <content src="index.html"/>
   <access origin="*"/>
@@ -17,4 +17,42 @@
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
+
+
+<platform name="ios">
+
+  <splash src="splash/splash-default.png" width="2048" height="1536"/>
+
+  <!-- iOS 7.0+ -->
+  <!-- iPhone / iPod Touch -->
+  <icon src="icons/ios/kevin-60.png" width="60" height="60" />
+  <icon src="icons/ios/kevin-60.png" width="120" height="120" />
+
+  <!-- iPad -->
+  <icon src="icons/ios/icon-72.png" width="76" height="76" />
+  <icon src="icons/ios/icon-72.png" width="152" height="152" />
+
+  <!-- iOS 6.1 -->
+  <!-- Spotlight Icon -->
+  <icon src="icons/ios/kevin-40.png" width="40" height="40" />
+  <icon src="icons/ios/kevin-40.png" width="80" height="80" />
+
+  <!-- iPhone / iPod Touch -->
+  <icon src="icons/ios/Icon.png" width="57" height="57" />
+  <icon src="icons/ios/Icon@2x.png" width="114" height="114" />
+
+  <!-- iPad -->
+  <icon src="icons/ios/Icon-72.png" width="72" height="72" />
+  <icon src="icons/ios/Icon-72@2x.png" width="144" height="144" />
+
+  <!-- iPhone Spotlight and Settings Icon -->
+  <icon src="icons/ios/Icon-Small.png" width="29" height="29" />
+  <icon src="icons/ios/Icon-Small@2x.png" width="58" height="58" />
+
+  <!-- iPad Spotlight and Settings Icon -->
+  <icon src="icons/ios/Icon-Small-50.png" width="50" height="50" />
+  <icon src="icons/ios/Icon-Small-50@2x.png" width="100" height="100" />
+</platform>
+
+
 </widget>
