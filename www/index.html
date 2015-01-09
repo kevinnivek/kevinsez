@@ -27,54 +27,13 @@
    
     
     <script>
-        /*
-        var userfilename = "gftest.txt";
-        var usersubfilename = "gfsubdirtest.txt";
-        var userdir = cordova.file.applicationDirectory + "www/sounds"; // Default for iOS
         
-    function onDeviceReady(){
-        // Insert code here to set proper directory for devices other than iOS or Android.
-        //console.log('zero');
-        testDirectory();
-    }
-    function testDirectory(){
-        console.log('one');
-        var a = new DirManager(); // Initialize a Folder manager
-        //a.create_r('folder_a/folder_b',Log('created successfully'));
-        a.list('folder_a', Log('List'));
-        //a.list('', Log('List'));
-        //a.list('', Log('List'));
-        //GapFile.readDirectory(userdir,displayDirectory,dirFail);
-
-    }
-    function displayDirectory(dirarr){
-        console.log(JSON.stringify(dirarr));
-    }
-    function dirFail(){
-        console.log('three');
-    }
-         */
-    /*
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady(){
-            // Insert code here to set proper directory for devices other than iOS or Android.
-            //console.log('zero');
-            var chooser = randomNoRepeats(['areas-of-my-body.mp3', 'body-examined.mp3', 'bradley-pussywillow.mp3', 'dont-enter-bedroom.mp3', 'father-foot-inspector.mp3', 'feet-slime.mp3', 'inspect-your-feet.mp3', 'lieing-down-sleeping.mp3', 'secret-room-cellar.mp3', 'stool-examined.mp3', 'toe-jobs.mp3', 'touch-left-hand-only.mp3', 'various-slimes.mp3']);
-            console.log('random : ' + chooser());
-
+	var model = device.model;
+	console.log('model : ' + model);
     }
     
-    function randomNoRepeats(array) {
-        var copy = array.slice(0);
-        return function() {
-            if (copy.length < 1) { copy = array.slice(0); }
-            var index = Math.floor(Math.random() * copy.length);
-            var item = copy[index];
-            copy.splice(index, 1);
-            return item;
-        };
-    }
-    */
         </script>
   </head>
  <body ng-app="starter">
