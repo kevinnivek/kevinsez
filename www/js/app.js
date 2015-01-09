@@ -8,6 +8,7 @@ angular.module('starter', ['ionic', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
+	console.log('device platform : ' + device.platform);
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -97,7 +98,7 @@ angular.module('starter', ['ionic', 'ngCordova'])
 
 
 .controller('AudioCtrl', function($scope, MediaSrv) {
-  $scope.playAudio = function(filename) {
+  $scope.playAudio(platform) = function(filename) {
     //  alert("test");
     MediaSrv.loadMedia('sounds/' + filename).then(function(media) {
       media.play();

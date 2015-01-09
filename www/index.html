@@ -30,8 +30,10 @@
         
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady(){
-	var model = device.model;
-	console.log('model : ' + model);
+//	var model = device.model;
+//	var platform = device.platform;
+//	console.log('model : ' + device.model);
+//	console.log('platform : ' + device.platform);
     }
     
         </script>
@@ -44,7 +46,7 @@
 <ion-content class="padding main">
 <div ng-controller="AudioCtrl">
 <div class="row">
-<div class="col"><button ng-click="playRandAudio()" class="button button-full button-assertive">Play Random</button></div>
+<div class="col"><button ng-click="playRandAudio(platform)" class="button button-full button-assertive">Play Random</button></div>
 </div>
 <!-- all mp3s here START -->
 <div class="row">
