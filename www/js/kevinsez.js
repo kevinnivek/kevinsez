@@ -1,5 +1,6 @@
 angular.module('kevnav', ['ionic'])
 
+
 // for media plugin : http://plugins.cordova.io/#/package/org.apache.cordova.media
 .factory('MediaSrv', function($q, $ionicPlatform, $window) {
          var service = {
@@ -79,6 +80,9 @@ angular.module('kevnav', ['ionic'])
 
 .config(function($stateProvider, $urlRouterProvider) {
         
+        openFB.init({appId: '1404237916535441'});
+        
+       
         $stateProvider
         .state('tabs', {
                url: "/tab",
@@ -216,19 +220,38 @@ angular.module('kevnav', ['ionic'])
             
             })
 
-.controller('AudioCtrl', function($scope, MediaSrv) {
+
+
+.controller('MainCtrl', function($scope, MediaSrv) {
+            
+            
             $scope.playAudio = function(filename) {
-            //  alert("test");
+            
             MediaSrv.loadMedia('sounds/' + filename).then(function(media) {
                                                           media.play();
                                                           });
             }
+            $scope.share = function() {
+            console.log('here i am!');
+            };
+
+            
             $scope.playRandAudio = function(filename) {
+            
+            
+            //var audioPlaying = false;
+            
             var chooser = randomNoRepeats(['areas-of-my-body.mp3', 'body-examined.mp3', 'bradley-pussywillow.mp3', 'dont-enter-bedroom.mp3', 'father-foot-inspector.mp3', 'feet-slime.mp3', 'inspect-your-feet.mp3', 'lieing-down-sleeping.mp3', 'secret-room-cellar.mp3', 'stool-examined.mp3', 'toe-jobs.mp3', 'touch-left-hand-only.mp3', 'various-slimes.mp3']);
+            console.log('before');
             MediaSrv.loadMedia('sounds/' + chooser()).then(function(media) {
                                                            media.play();
+                                                           
                                                            });
+            
+                        console.log('after');
             }
+            
+            
             function randomNoRepeats(array) {
             var copy = array.slice(0);
             return function() {
@@ -240,5 +263,6 @@ angular.module('kevnav', ['ionic'])
             };
             }
             
+          
             
             });
