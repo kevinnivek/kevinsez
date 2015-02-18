@@ -36,6 +36,13 @@
         
         
     }
+    
+
+
+    
+   
+
+
         </script>
   </head>
  <body ng-app="kevnav" ng-controller="MainCtrl">
@@ -73,7 +80,7 @@
 <script id="templates/home.html" type="text/ng-template">
     <ion-view view-title="Kevin Sez">
     <ion-content class="padding">
-    Kevvo Categories
+    <h4>Kevvo Categories</h4>
     <div class="row">
     <div class="col"><a class="button icon icon-right ion-waterdrop button-block button-small" href="#/tab/bodyslimes">Body slimes</a></div>
     <div class="col"><a class="button icon icon-right ion-sad button-block button-small" href="#/tab/jammingfingers">Jamming fingers</a></div>
@@ -96,6 +103,9 @@
     </div>
 
     </ion-content>
+    
+    <img src="img/kevin_bak1.png" class="bg" >
+    
     </ion-view>
     </script>
 
@@ -107,7 +117,7 @@
     <p>whatever</p>
     <div class="row">
     <div class="col"><button ng-click="playAudio('areas-of-my-body.mp3')" class="button button-small button-dark">Body Areas</button></div>
-    <div class="col"><button ng-click="playAudio('body-examined.mp3')" class="button button-small button-dark">Examine my Body</button></div>
+  <div class="col"><button ng-click="playAudio('body-examined.mp3')" class="button button-small button-dark">Examine my Body</button></div>
     </div>
     <div class="row">
     <div class="col"><button ng-click="playAudio('various-slimes.mp3')" class="button button-small button-dark">Various Slimes</button></div>

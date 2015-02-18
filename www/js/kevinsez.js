@@ -1,14 +1,18 @@
 angular.module('kevnav', ['ionic'])
 
 
+
+// for media plugin : http://plugins.cordova.io/#/package/org.apache.cordova.media
 // for media plugin : http://plugins.cordova.io/#/package/org.apache.cordova.media
 .factory('MediaSrv', function($q, $ionicPlatform, $window) {
+         
+         
+         
          var service = {
          loadMedia: loadMedia,
          getStatusMessage: getStatusMessage,
          getErrorMessage: getErrorMessage
          };
-         
          function loadMedia(src, onError, onStatus, onStop) {
          var defer = $q.defer();
          $ionicPlatform.ready(function() {
@@ -28,7 +32,6 @@ angular.module('kevnav', ['ionic'])
                               onStatus(status);
                               }
                               };
-                              
                               if ($ionicPlatform.is('android')) {
                               src = '/android_asset/www/' + src;
                               }
@@ -36,14 +39,12 @@ angular.module('kevnav', ['ionic'])
                               });
          return defer.promise;
          }
-         
          function _logError(src, err) {
          console.error('media error', {
                        code: err.code,
                        message: getErrorMessage(err.code)
                        });
          }
-         
          function getStatusMessage(status) {
          if (status === 0) {
          return 'Media.MEDIA_NONE';
@@ -59,7 +60,6 @@ angular.module('kevnav', ['ionic'])
          return 'Unknown status <' + status + '>';
          }
          }
-         
          function getErrorMessage(code) {
          if (code === 1) {
          return 'MediaError.MEDIA_ERR_ABORTED';
@@ -73,7 +73,6 @@ angular.module('kevnav', ['ionic'])
          return 'Unknown code <' + code + '>';
          }
          }
-         
          return service;
          })
 
@@ -81,6 +80,7 @@ angular.module('kevnav', ['ionic'])
 .config(function($stateProvider, $urlRouterProvider) {
         
         openFB.init({appId: '1404237916535441'});
+
         
        
         $stateProvider
@@ -222,14 +222,61 @@ angular.module('kevnav', ['ionic'])
 
 
 
+
+
 .controller('MainCtrl', function($scope, MediaSrv) {
             
+            // declare playing variable outside of the play function
+            var playing = false;
+            
+
             
             $scope.playAudio = function(filename) {
             
-            MediaSrv.loadMedia('sounds/' + filename).then(function(media) {
-                                                          media.play();
-                                                          });
+            // Audio player
+            //
+            var my_media = null;
+            var mediaTimer = null;
+            
+            
+            function onSuccess() {
+            console.log("playAudio():Audio Success");
+            console.log("test123");
+            playing = false;
+            }
+            
+            function onError(error) {
+            alert('code: '    + error.code    + '\n' +
+                  'message: ' + error.message + '\n');
+            playing = false;
+            }
+
+            
+            
+            // Create Media object from src
+           my_media = new Media('sounds/' + filename, onSuccess, onError);
+            /*
+            var my_media = new Media('sounds/' + filename).then(function() {
+                                                                         console.log("Success");
+                                                                         
+                                                                         }, function(err) {
+                                                                         console.log("Failed: " + err);
+                                                                         });
+            */
+            console.log('playing : ' + playing);
+            // Play audio
+            if (!playing) {
+                my_media.play();
+                console.log('playing');
+                playing = true;
+            } else {
+                my_media.stop();
+                playing = false;
+            }
+            
+            
+            
+            
             }
             $scope.share = function() {
             console.log('here i am!');
@@ -242,13 +289,30 @@ angular.module('kevnav', ['ionic'])
             //var audioPlaying = false;
             
             var chooser = randomNoRepeats(['areas-of-my-body.mp3', 'body-examined.mp3', 'bradley-pussywillow.mp3', 'dont-enter-bedroom.mp3', 'father-foot-inspector.mp3', 'feet-slime.mp3', 'inspect-your-feet.mp3', 'lieing-down-sleeping.mp3', 'secret-room-cellar.mp3', 'stool-examined.mp3', 'toe-jobs.mp3', 'touch-left-hand-only.mp3', 'various-slimes.mp3']);
-            console.log('before');
-            MediaSrv.loadMedia('sounds/' + chooser()).then(function(media) {
-                                                           media.play();
-                                                           
-                                                           });
+            //console.log('before');
+            if (media) {
+            media.stop();
+            }
+            media = new Media('sounds/' + chooser(), mSuc(), mErr(), mStat());
+            media.play({numberOfLoops: 1}, mSuc(), mErr(), mStat());
             
-                        console.log('after');
+           
+            function mSuc() {
+            console.log('test1');
+            }
+            function mErr() {
+            console.log('test2');
+            }
+            function mStat() {
+            console.log('test3');
+            }
+            //MediaSrv.loadMedia(
+                               //'sounds/' + chooser()
+                                //).then(function(media) {
+//                                                           media.play();
+//                                                           });
+            
+                        //console.log('after');
             }
             
             

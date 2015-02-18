@@ -6,3 +6,16 @@
     	-moz-background-size: cover;
     	background-size: cover;
 }
+
+.bg {
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    bottom:0;
+    margin-bottom:0;
+}
+
+.h4 {
+    text-transform: uppercase;
+    font-color: white;
+}
