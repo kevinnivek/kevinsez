@@ -228,6 +228,7 @@ angular.module('kevnav', ['ionic'])
             
             // declare playing variable outside of the play function
             var playing = false;
+            var r_playing = false;
             
 
             
@@ -255,15 +256,7 @@ angular.module('kevnav', ['ionic'])
             
             // Create Media object from src
            my_media = new Media('sounds/' + filename, onSuccess, onError);
-            /*
-            var my_media = new Media('sounds/' + filename).then(function() {
-                                                                         console.log("Success");
-                                                                         
-                                                                         }, function(err) {
-                                                                         console.log("Failed: " + err);
-                                                                         });
-            */
-            console.log('playing : ' + playing);
+            
             // Play audio
             if (!playing) {
                 my_media.play();
@@ -285,36 +278,36 @@ angular.module('kevnav', ['ionic'])
             
             $scope.playRandAudio = function(filename) {
             
-            
-            //var audioPlaying = false;
+            var r_media = null;
+            var r_mediaTimer = null;
             
             var chooser = randomNoRepeats(['areas-of-my-body.mp3', 'body-examined.mp3', 'bradley-pussywillow.mp3', 'dont-enter-bedroom.mp3', 'father-foot-inspector.mp3', 'feet-slime.mp3', 'inspect-your-feet.mp3', 'lieing-down-sleeping.mp3', 'secret-room-cellar.mp3', 'stool-examined.mp3', 'toe-jobs.mp3', 'touch-left-hand-only.mp3', 'various-slimes.mp3']);
-            //console.log('before');
-            if (media) {
-            media.stop();
-            }
-            media = new Media('sounds/' + chooser(), mSuc(), mErr(), mStat());
-            media.play({numberOfLoops: 1}, mSuc(), mErr(), mStat());
             
-           
-            function mSuc() {
-            console.log('test1');
-            }
-            function mErr() {
-            console.log('test2');
-            }
-            function mStat() {
-            console.log('test3');
-            }
-            //MediaSrv.loadMedia(
-                               //'sounds/' + chooser()
-                                //).then(function(media) {
-//                                                           media.play();
-//                                                           });
+            r_media = new Media('sounds/' + chooser(), r_onSuccess, r_onError);
             
-                        //console.log('after');
+            function r_onSuccess() {
+            alert('audio success');
+                r_playing = false;
             }
             
+            function r_onError(error) {
+                alert('code: '    + error.code    + '\n' +
+                  'message: ' + error.message + '\n');
+                r_playing = false;
+            }
+            
+            // Play audio
+            if (!r_playing) {
+                r_media.play();
+                //alert('playing');
+                r_playing = true;
+            } else {
+                r__media.stop();
+                r_playing = false;
+            }
+            
+            
+            }
             
             function randomNoRepeats(array) {
             var copy = array.slice(0);
@@ -326,7 +319,4 @@ angular.module('kevnav', ['ionic'])
             return item;
             };
             }
-            
-          
-            
             });
