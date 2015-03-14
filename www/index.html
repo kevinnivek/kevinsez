@@ -70,6 +70,10 @@
     <ion-nav-view name="contact-tab"></ion-nav-view>
     </ion-tab>
     
+    <!--<ion-tab title="Stop Audio" icon="ion-stop" ng-click="stopAudio()">
+    <ion-nav-view name="contact-tab"></ion-nav-view>
+    </ion-tab>-->
+    
     <ion-tab title="Contact" icon="ion-chatbox-working" ui-sref="tabs.contact">
     <ion-nav-view name="contact-tab"></ion-nav-view>
     </ion-tab>
@@ -94,7 +98,7 @@
     <div class="col"><a class="button icon icon-right ion-videocamera button-block button-small" href="#/tab/sleeping">Sleeping</a></div>
     </div>
     <div class="row">
-    <div class="col"><a class="button icon icon-right ion-thermometer button-block button-small" href="#/tab/hotbreathing">Hot breathing</a></div>
+    <div class="col"><a class="button icon icon-right ion-music-note button-block button-small" href="#/tab/singing">Singing</a></div>
     <div class="col"><a class="button icon icon-right ion-eye button-block button-small" href="#/tab/watchingafar">Watching from afar</a></div>
     </div>
     <div class="row">
@@ -114,13 +118,14 @@
 <script id="templates/bodyslimes.html" type="text/ng-template">
     <ion-view view-title="Body Slimes">
     <ion-content class="padding">
-    <p>whatever</p>
+    <p>Slimes and sour milk secretions from your body</p>
     <div class="row">
     <div class="col"><button ng-click="playAudio('areas-of-my-body.mp3')" class="button button-small button-dark">Body Areas</button></div>
   <div class="col"><button ng-click="playAudio('body-examined.mp3')" class="button button-small button-dark">Examine my Body</button></div>
     </div>
     <div class="row">
     <div class="col"><button ng-click="playAudio('various-slimes.mp3')" class="button button-small button-dark">Various Slimes</button></div>
+    <div class="col"><button ng-click="playAudio('live_meth_slamming.mp3')" class="button button-small button-dark">Live meth slamming</button></div>
     </div>
     </ion-content>
     </ion-view>
@@ -128,9 +133,13 @@
 <script id="templates/jammingfingers.html" type="text/ng-template">
     <ion-view view-title="Jamming Fingers">
     <ion-content class="padding">
-    <p>Banging your head against a wall uses 150 calories an hour.</p>
+    <p>Jamming your fingers in areas</p>
     <div class="row">
     <div class="col"><button ng-click="playAudio('touch-left-hand-only.mp3')" class="button button-small button-dark">Left Hand</button></div>
+    <div class="col"><button ng-click="playAudio('berlusconi.mp3')" class="button button-small button-dark">Berlusconi</button></div>
+    </div>
+    <div class="row">
+    <div class="col"><button ng-click="playAudio('HI_DUNCAN.mp3')" class="button button-small button-dark">HI Duncan</button></div>
     </div>
     </ion-content>
     </ion-view>
@@ -139,7 +148,7 @@
 <script id="templates/feet.html" type="text/ng-template">
     <ion-view view-title="Feet">
     <ion-content class="padding">
-    <p>Banging your head against a wall uses 150 calories an hour.</p>
+    <p>Everything regarding feet, examining feet and inspecting them.</p>
     <div class="row">
     <div class="col"><button ng-click="playAudio('father-foot-inspector.mp3')" class="button button-small button-dark">Foot Inspector</button></div>
     <div class="col"><button ng-click="playAudio('feet-slime.mp3')" class="button button-small button-dark">Feet Slime</button></div>
@@ -154,9 +163,10 @@
 <script id="templates/cleaningareas.html" type="text/ng-template">
     <ion-view view-title="Cleaning Areas">
     <ion-content class="padding">
-    <p>Banging your head against a wall uses 150 calories an hour.</p>
+    <p>Cleaning areas of your body and areas of places.</p>
     <div class="row">
     <div class="col"><button ng-click="playAudio('stool-examined.mp3')" class="button button-small button-dark">Examine Stool</button></div>
+    <div class="col"><button ng-click="playAudio('forduncan.mp3')" class="button button-small button-dark">Eat my Peanuts</button></div>
     </div>
     </ion-content>
     </ion-view>
@@ -165,7 +175,7 @@
 <script id="templates/ticklecloset.html" type="text/ng-template">
     <ion-view view-title="Tickle Closet">
     <ion-content class="padding">
-    <p>Banging your head against a wall uses 150 calories an hour.</p>
+    <p>The tickle closet.</p>
     <div class="row">
     <div class="col"><button ng-click="playAudio('secret-room-cellar.mp3')" class="button button-small button-dark">Secret Room</button></div>
     <div class="col"><button ng-click="playAudio('dont-enter-bedroom.mp3')" class="button button-small button-dark">Dont Enter</button></div>
@@ -176,31 +186,37 @@
 <script id="templates/sleeping.html" type="text/ng-template">
     <ion-view view-title="Sleeping">
     <ion-content class="padding">
-    <p>Banging your head against a wall uses 150 calories an hour.</p>
-    <p>
-    <a class="button icon ion-home" href="#/tab/home"> Home</a>
-    </p>
+    <p>Sleeping and watching sleeping bodies from far away and close by.</p>
+    <div class="row">
+    <div class="col"><button ng-click="playAudio('heygurl.mp3')" class="button button-small button-dark">Comedy at club54</button></div>
+    </div>
     </ion-content>
     </ion-view>
     </script>
 
-<script id="templates/hotbreathing.html" type="text/ng-template">
-    <ion-view view-title="Hot Breathing">
+<script id="templates/singing.html" type="text/ng-template">
+    <ion-view view-title="Singing">
     <ion-content class="padding">
-    <p>Banging your head against a wall uses 150 calories an hour.</p>
-    <p>
-    <a class="button icon ion-home" href="#/tab/home"> Home</a>
-    </p>
+    <p>Singing graciously with constant eye contact.</p>
+    <div class="row">
+    <div class="col"><button ng-click="playAudio('club54.mp3')" class="button button-small button-dark">Comedy at club54</button></div>
+    <div class="col"><button ng-click="playAudio('djhyper.mp3')" class="button button-small button-dark">DJ Hyper</button></div>
+    </div>
+    <div class="row">
+    <div class="col"><button ng-click="playAudio('djlazarus.mp3')" class="button button-small button-dark">DJ Lazarus</button></div>
+    <div class="col"><button ng-click="playAudio('doo_sad.mp3')" class="button button-small button-dark">DOO Sad</button></div>
+    </div>
     </ion-content>
     </ion-view>
     </script>
 <script id="templates/watchingafar.html" type="text/ng-template">
     <ion-view view-title="Watching from Afar">
     <ion-content class="padding">
-    <p>Banging your head against a wall uses 150 calories an hour.</p>
-    <p>
-    <a class="button icon ion-home" href="#/tab/home"> Home</a>
-    </p>
+    <p>Watching people from far away.</p>
+    <div class="row">
+    <div class="col"><button ng-click="playAudio('newt.mp3')" class="button button-small button-dark">DJ Lazarus</button></div>
+    <div class="col"><button ng-click="playAudio('doo_sad.mp3')" class="button button-small button-dark">DOO Sad</button></div>
+    </div>
     </ion-content>
     </ion-view>
     </script>
@@ -208,19 +224,22 @@
 <script id="templates/huffing.html" type="text/ng-template">
     <ion-view view-title="Huffing">
     <ion-content class="padding">
-    <p>Banging your head against a wall uses 150 calories an hour.</p>
-    <p>
-    <a class="button icon ion-home" href="#/tab/home"> Home</a>
-    </p>
+    <p>Huffing smells, scents and auras.</p>
+
     </ion-content>
     </ion-view>
     </script>
 <script id="templates/warmsmiles.html" type="text/ng-template">
     <ion-view view-title="Warm Smiles">
     <ion-content class="padding">
-    <p>Banging your head against a wall uses 150 calories an hour.</p>
+    <p>Smileing warmly to friends and strangers.</p>
     <div class="row">
     <div class="col"><button ng-click="playAudio('bradley-pussywillow.mp3')" class="button button-small button-dark">Pussy Willow</button></div>
+    <div class="col"><button ng-click="playAudio('counting.mp3')" class="button button-small button-dark">Counting</button></div>
+    </div>
+    <div class="row">
+    <div class="col"><button ng-click="playAudio('good-boy.mp3')" class="button button-small button-dark">Good boy</button></div>
+    <div class="col"><button ng-click="playAudio('greg.mp3')" class="button button-small button-dark">Greg</button></div>
     </div>
     </ion-content>
     </ion-view>
@@ -233,7 +252,8 @@
     <ion-view view-title="About">
     <ion-content class="padding">
     <h3>About Sez Kevvo</h3>
-    <p>Wonderful audio collection that offers insightful amazing clips.</p>
+    <p>"Sez Kevvo" AKA "Kevin Sez" is a wonderful iphone and android app that contains an audio collection that offers insightful amazing clips.</p>
+    <p>This app was created as an experiment into the divulgence of texturalizing and layering of spoken word and vocal pitch effects</p>
     </ion-content>
     </ion-view>
     </script>
@@ -251,10 +271,10 @@
     <ion-content>
     <div class="list">
     <div class="item">
-    @Ogrekevin
+    Twitter : <a href="http://www.twitter.com/ogrekevin" target="_new">@Ogrekevin</a>
     </div>
     <div class="item">
-    www.friendlybearonskates.com
+    Web : <A href="http://www.friendlybearonskates.com" target="_new">www.friendlybearonskates.com</a>
     </div>
     </div>
     </ion-content>

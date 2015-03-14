@@ -151,10 +151,10 @@ angular.module('kevnav', ['ionic'])
                })
         
         .state('tabs.hotbreathing', {
-               url: "/hotbreathing",
+               url: "/singing",
                views: {
                'home-tab': {
-               templateUrl: "templates/hotbreathing.html"
+               templateUrl: "templates/singing.html"
                }
                }
                })
@@ -228,9 +228,19 @@ angular.module('kevnav', ['ionic'])
             
             // declare playing variable outside of the play function
             var playing = false;
-            var r_playing = false;
+           
             
-
+            $scope.stopAudio = function() {
+            
+               // if (playing) {
+                    my_media.stop();
+                    r_media.stop();
+                    console.log('stopped!');
+                    playing = false;
+               // } else {
+               //     console.log('nothing playing!');
+               // }
+            }
             
             $scope.playAudio = function(filename) {
             
@@ -255,7 +265,12 @@ angular.module('kevnav', ['ionic'])
             
             
             // Create Media object from src
-           my_media = new Media('sounds/' + filename, onSuccess, onError);
+            if (ionic.Platform.isAndroid()) {
+                my_media = new Media('/android_asset/www/sounds/' + filename, onSuccess, onError);
+            } else {
+                my_media = new Media('sounds/' + filename, onSuccess, onError);
+            }
+           
             
             // Play audio
             if (!playing) {
@@ -281,29 +296,65 @@ angular.module('kevnav', ['ionic'])
             var r_media = null;
             var r_mediaTimer = null;
             
-            var chooser = randomNoRepeats(['areas-of-my-body.mp3', 'body-examined.mp3', 'bradley-pussywillow.mp3', 'dont-enter-bedroom.mp3', 'father-foot-inspector.mp3', 'feet-slime.mp3', 'inspect-your-feet.mp3', 'lieing-down-sleeping.mp3', 'secret-room-cellar.mp3', 'stool-examined.mp3', 'toe-jobs.mp3', 'touch-left-hand-only.mp3', 'various-slimes.mp3']);
+            var chooser = randomNoRepeats([
+                                           'areas-of-my-body.mp3',
+                                           'body-examined.mp3',
+                                           'bradley-pussywillow.mp3',
+                                           'dont-enter-bedroom.mp3',
+                                           'father-foot-inspector.mp3',
+                                           'feet-slime.mp3',
+                                           'inspect-your-feet.mp3',
+                                           'lieing-down-sleeping.mp3',
+                                           'secret-room-cellar.mp3',
+                                           'stool-examined.mp3',
+                                           'toe-jobs.mp3',
+                                           'touch-left-hand-only.mp3',
+                                           'various-slimes.mp3',
+                                           // new 02182015
+                                           'berlusconi.mp3',
+                                           'club54.mp3',
+                                           'counting.mp3',
+                                           'djhyper.mp3',
+                                           'djlazarus.mp3',
+                                           'doo_sad.mp3',
+                                           'forduncan.mp3',
+                                           'good-boy.mp3',
+                                           'greg.mp3',
+                                           'heygurl.mp3',
+                                           'HI_DUNCAN.mp3',
+                                           'imsadnow.mp3',
+                                           'live_meth_slamming.mp3',
+                                           'newt.mp3'
+                                           
+                                           ]);
             
-            r_media = new Media('sounds/' + chooser(), r_onSuccess, r_onError);
+            //alert('device name : ' + ionic.Platform.platform());
+            if (ionic.Platform.isAndroid()) {
+                r_media = new Media('/android_asset/www/sounds/' + chooser(), r_onSuccess, r_onError);
+            } else {
+                r_media = new Media('sounds/' + chooser(), r_onSuccess, r_onError);
+            }
+            
             
             function r_onSuccess() {
-            alert('audio success');
-                r_playing = false;
+            //alert('audio success');
+                playing = false;
             }
             
             function r_onError(error) {
                 alert('code: '    + error.code    + '\n' +
                   'message: ' + error.message + '\n');
-                r_playing = false;
+                playing = false;
             }
             
             // Play audio
-            if (!r_playing) {
+            if (!playing) {
                 r_media.play();
                 //alert('playing');
-                r_playing = true;
+                playing = true;
             } else {
                 r__media.stop();
-                r_playing = false;
+                playing = false;
             }
             
             
