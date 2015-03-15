@@ -216,7 +216,7 @@ angular.module('kevnav', ['ionic'])
         })
 
 .controller('HomeTabCtrl', function($scope) {
-            console.log('HomeTabCtrl');
+            //console.log('HomeTabCtrl');
             
             })
 
@@ -235,7 +235,7 @@ angular.module('kevnav', ['ionic'])
                // if (playing) {
                     my_media.stop();
                     r_media.stop();
-                    console.log('stopped!');
+                   // console.log('stopped!');
                     playing = false;
                // } else {
                //     console.log('nothing playing!');
@@ -251,8 +251,8 @@ angular.module('kevnav', ['ionic'])
             
             
             function onSuccess() {
-            console.log("playAudio():Audio Success");
-            console.log("test123");
+           // console.log("playAudio():Audio Success");
+           // console.log("test123");
             playing = false;
             }
             
@@ -275,7 +275,7 @@ angular.module('kevnav', ['ionic'])
             // Play audio
             if (!playing) {
                 my_media.play();
-                console.log('playing');
+            //    console.log('playing');
                 playing = true;
             } else {
                 my_media.stop();
@@ -287,7 +287,7 @@ angular.module('kevnav', ['ionic'])
             
             }
             $scope.share = function() {
-            console.log('here i am!');
+            //console.log('here i am!');
             };
 
             
